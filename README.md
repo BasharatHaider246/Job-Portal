@@ -111,4 +111,6 @@ All requests are processed through Controllers → Services → Repositories →
 - Create a new Pull Request
 
 ## License
-Add your LICENSE file (MIT, Apache 2.0, etc.) here.
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
