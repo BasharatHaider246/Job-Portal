@@ -105,6 +105,48 @@ job-portal/
 ```
 
 ## 🏗️ Architecture
+graph TB
+    JobSeeker[👥 Job Seeker<br/>User]
+    Employer[🏢 Employer<br/>Recruiter]
+    Frontend[🎨 Frontend<br/>React.js<br/>Port: 3000]
+    Backend[🔧 Backend API<br/>Spring Boot<br/>Port: 8080]
+    DB[(🗄️ MySQL DB)]
+    
+    JobSeeker --> Frontend
+    Employer --> Frontend
+    Frontend --> Backend
+    Backend --> DB
+    
+    style Frontend fill:#4CAF50,stroke:#2E7D32,color:#fff
+    style Backend fill:#2196F3,stroke:#1565C0,color:#fff
+    style DB fill:#FF9800,stroke:#E65100,color:#fff
+    style JobSeeker fill:#9C27B0,stroke:#6A1B9A,color:#fff
+    style Employer fill:#FF5722,stroke:#D84315,color:#fff
+JobSeeker --> Frontend
+Employer --> Frontend
+Frontend --> Backend
+Backend --> DB
+
+style Frontend fill:#4CAF50,stroke:#2E7D32,color:#fff
+style Backend fill:#2196F3,stroke:#1565C0,color:#fff
+style DB fill:#FF9800,stroke:#E65100,color:#fff
+style JobSeeker fill:#9C27B0,stroke:#6A1B9A,color:#fff
+style Employer fill:#FF5722,stroke:#D84315,color:#fff
+
+</div>
+
+### 🎨 Architecture Components
+
+- **👥 Job Seekers** - Users searching for jobs
+- **🏢 Employers** - Recruiters posting jobs
+- **🎨 React Frontend** - User interface (Port 3000)
+- **🔧 Spring Boot Backend** - REST APIs (Port 8080)
+- **🗄️ MySQL Database** - Data persistence
+
+
+<div align="center">
+
+
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
