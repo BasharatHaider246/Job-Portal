@@ -1,19 +1,15 @@
-<div align="center">
-
 # 💼 Job Portal - Spring Boot REST API
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&duration=2800&pause=2000&color=6DB33F&center=true&vCenter=true&width=940&lines=Welcome+to+Job+Portal+API!;Built+with+Spring+Boot+%E2%9D%A4%EF%B8%8F;RESTful+%7C+Secure+%7C+Scalable" alt="Typing SVG" />
+<div align="center">
 
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.0+-brightgreen?style=for-the-badge&logo=spring&logoColor=white)](https://spring.io/projects/spring-boot)
-[![Java](https://img.shields.io/badge/Java-17+-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.oracle.com/java/)
-[![MySQL](https://img.shields.io/badge/MySQL-8.0+-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
-[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.0+-brightgreen?style=for-the-badge&logo=spring)
+![Java](https://img.shields.io/badge/Java-17+-orange?style=for-the-badge&logo=java)
+![MySQL](https://img.shields.io/badge/MySQL-8.0+-blue?style=for-the-badge&logo=mysql)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
-**A production-ready RESTful Job Portal API with advanced features**
+**A comprehensive RESTful Job Portal API built with Spring Boot**
 
-[🚀 Features](#-features) • [🛠️ Tech Stack](#️-tech-stack) • [📥 Installation](#-installation) • [📚 API Docs](#-api-endpoints) • [🤝 Contributing](#-contributing)
-
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="700">
+[Features](#-features) • [Tech Stack](#-tech-stack) • [Installation](#-installation) • [API Docs](#-api-endpoints) • [Contributing](#-contributing)
 
 </div>
 
@@ -21,81 +17,32 @@
 
 ## 📋 Overview
 
-<img align="right" alt="Coding" width="400" src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif">
-
-This is a **production-ready Job Portal application** built using **Spring Boot**. The system enables:
-
-- 🎯 **Job Seekers** to discover and apply for jobs
-- 🏢 **Employers** to post job listings and manage applications  
-- 🔐 **Secure Authentication** with role-based access control
-- 📊 **Analytics & Tracking** for applications and candidates
-
-Perfect for learning Spring Boot or building your job portal platform!
-
-<br clear="right"/>
+This is a production-ready **Job Portal application** built using **Spring Boot**. The system enables job seekers to discover and apply for jobs, while employers can post job listings, manage applications, and track candidates. The application features secure authentication, role-based access control, and a well-structured RESTful API.
 
 ## ✨ Features
 
-<table>
-<tr>
-<td width="50%">
-
-### 🔐 Security & Authentication
-- ✅ BCrypt password encryption
-- ✅ Stateless authentication
-- ✅ Role-based access (Admin/Job Seeker/Employer)
-- ✅ Spring Security integration
-
-</td>
-<td width="50%">
-
-### 💼 Job Management
-- ✅ Create & manage job listings
-- ✅ Advanced search & filters
-- ✅ Category-based organization
-- ✅ Company profiles
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-### 📤 Application Tracking
-- ✅ One-click job applications
-- ✅ Application status tracking
-- ✅ Employer review system
-- ✅ Candidate management
-
-</td>
-<td width="50%">
-
-### 🗄️ Database & Architecture
-- ✅ MySQL persistent storage
-- ✅ JPA/Hibernate ORM
-- ✅ RESTful API design
-- ✅ Layered architecture
-
-</td>
-</tr>
-</table>
+- 🔐 **User Authentication & Authorization** - Secure registration and login with BCrypt password encryption
+- 👤 **Profile Management** - Separate profiles for job seekers and employers/companies
+- 📝 **Job Posting & Management** - Companies can create, update, and manage job listings
+- 🔍 **Advanced Job Search** - Search jobs by keywords, categories, and company
+- 📤 **Application Management** - Job seekers can apply for jobs; employers can review and update application status
+- 🏷️ **Category System** - Organize jobs into categories (IT, Marketing, Sales, etc.)
+- 🔒 **Spring Security** - Stateless authentication with BCrypt password encoding
+- 🗄️ **MySQL Database** - Persistent data storage with JPA/Hibernate ORM
+- 📚 **API Documentation** - Clean REST API design (Swagger/OpenAPI ready)
 
 ## 🛠️ Tech Stack
 
-<div align="center">
-
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot&logoColor=6DB33F)
-![Spring Security](https://img.shields.io/badge/Spring_Security-6DB33F?style=for-the-badge&logo=Spring-Security&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
-![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=Hibernate&logoColor=white)
-![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=Apache-Maven&logoColor=white)
-![Java](https://img.shields.io/badge/Java_17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-
-</div>
+| Technology | Description |
+|-----------|-------------|
+| ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat&logo=spring&logoColor=white) | Backend framework |
+| ![Spring Security](https://img.shields.io/badge/Spring%20Security-6DB33F?style=flat&logo=springsecurity&logoColor=white) | Authentication & authorization |
+| ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white) | Relational database |
+| ![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=flat&logo=hibernate&logoColor=white) | ORM framework |
+| ![Maven](https://img.shields.io/badge/Maven-C71A36?style=flat&logo=apachemaven&logoColor=white) | Build automation |
+| ![Java](https://img.shields.io/badge/Java%2017-ED8B00?style=flat&logo=openjdk&logoColor=white) | Programming language |
 
 ## 📂 Project Structure
-
-<details>
-<summary>📁 Click to expand folder structure</summary>
 
 ```
 job-portal/
@@ -157,36 +104,51 @@ job-portal/
 └── 📄 .gitignore
 ```
 
-</details>
+## 🏗️ Architecture
 
-## 🏗️ Architecture Flow
-
-<div align="center">
-
-```mermaid
-graph TD
-    A[🌐 Client] -->|HTTP Request| B[🎯 Controller Layer]
-    B -->|Business Logic| C[⚙️ Service Layer]
-    C -->|Data Operations| D[🗄️ Repository Layer]
-    D -->|JPA/Hibernate| E[🗃️ MySQL Database]
-    E -->|Response| D
-    D -->|Data| C
-    C -->|JSON Response| B
-    B -->|HTTP Response| A
-    
-    style A fill:#e1f5ff,stroke:#01579b,stroke-width:2px
-    style B fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-    style C fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
-    style D fill:#fff3e0,stroke:#e65100,stroke-width:2px
-    style E fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+```
+┌─────────────────────────────────────────────────────────────┐
+│              🌐 Client (Browser/Postman/Mobile)             │
+└───────────────────────┬─────────────────────────────────────┘
+                        │ HTTP Requests (JSON)
+                        ▼
+┌─────────────────────────────────────────────────────────────┐
+│                   🎯 Controller Layer                        │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐     │
+│  │    User      │  │   Employee   │  │     Job      │     │
+│  │  Controller  │  │  Controller  │  │  Controller  │ ... │
+│  └──────────────┘  └──────────────┘  └──────────────┘     │
+└───────────────────────┬─────────────────────────────────────┘
+                        │ Business Logic Calls
+                        ▼
+┌─────────────────────────────────────────────────────────────┐
+│                   ⚙️  Service Layer                          │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐     │
+│  │    User      │  │   Employee   │  │     Job      │     │
+│  │   Service    │  │   Service    │  │   Service    │ ... │
+│  └──────────────┘  └──────────────┘  └──────────────┘     │
+└───────────────────────┬─────────────────────────────────────┘
+                        │ Data Operations
+                        ▼
+┌─────────────────────────────────────────────────────────────┐
+│                   🗄️  Repository Layer                       │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐     │
+│  │    User      │  │   Employee   │  │     Job      │     │
+│  │  Repository  │  │  Repository  │  │  Repository  │ ... │
+│  └──────────────┘  └──────────────┘  └──────────────┘     │
+└───────────────────────┬─────────────────────────────────────┘
+                        │ JPA/Hibernate
+                        ▼
+┌─────────────────────────────────────────────────────────────┐
+│                   🗃️  MySQL Database                         │
+│     ┌─────────┐  ┌──────────┐  ┌──────┐  ┌────────────┐   │
+│     │  users  │  │ employees│  │ jobs │  │    job_    │   │
+│     │         │  │          │  │      │  │applications│   │
+│     └─────────┘  └──────────┘  └──────┘  └────────────┘   │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-</div>
-
 ## 💾 Database Schema
-
-<details>
-<summary>🗃️ Click to view database relationships</summary>
 
 ```
 ┌─────────────────────┐
@@ -224,12 +186,9 @@ graph TD
 └─────────────────────┘
 ```
 
-</details>
-
 ## 🚀 API Endpoints
 
-<details>
-<summary>👤 User Management APIs</summary>
+### 👤 User Management
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -238,10 +197,7 @@ graph TD
 | `GET` | `/api/users/username/{username}` | Get user by username |
 | `GET` | `/api/users/email/{email}` | Get user by email |
 
-</details>
-
-<details>
-<summary>🏢 Employee/Employer Management APIs</summary>
+### 🏢 Employee/Employer Management
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -249,10 +205,7 @@ graph TD
 | `PUT` | `/api/employees/update` | Update company profile |
 | `GET` | `/api/employees/user/{userId}` | Get employee by user ID |
 
-</details>
-
-<details>
-<summary>💼 Job Management APIs</summary>
+### 💼 Job Management
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -262,10 +215,7 @@ graph TD
 | `GET` | `/api/jobs/search?keyword=` | Search jobs by keyword |
 | `GET` | `/api/jobs/category/{categoryId}` | Get jobs by category |
 
-</details>
-
-<details>
-<summary>📋 Job Application Management APIs</summary>
+### 📋 Job Application Management
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -275,10 +225,7 @@ graph TD
 | `GET` | `/api/job-applications/job/{jobId}` | Get applications for specific job |
 | `PUT` | `/api/job-applications/{id}/status` | Update application status |
 
-</details>
-
-<details>
-<summary>🏷️ Job Category Management APIs</summary>
+### 🏷️ Job Category Management
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -287,33 +234,26 @@ graph TD
 | `PUT` | `/api/job-categories/{id}` | Update category |
 | `DELETE` | `/api/job-categories/{id}` | Delete category |
 
-</details>
-
 ## 📥 Installation
 
 ### Prerequisites
 
-<div align="center">
+- ☕ **Java 17+**
+- 📦 **Maven 3.6+**
+- 🗄️ **MySQL 8.0+**
+- 🔧 **Git**
+- 💻 **IDE** (IntelliJ IDEA / Eclipse / VS Code)
 
-| Requirement | Version | Download |
-|------------|---------|----------|
-| ☕ Java | 17+ | [Download](https://www.oracle.com/java/technologies/downloads/) |
-| 📦 Maven | 3.6+ | [Download](https://maven.apache.org/download.cgi) |
-| 🗄️ MySQL | 8.0+ | [Download](https://dev.mysql.com/downloads/mysql/) |
-| 🔧 Git | Latest | [Download](https://git-scm.com/downloads) |
+### Step-by-Step Setup
 
-</div>
-
-### 🚀 Quick Start
-
-#### 1️⃣ Clone Repository
+#### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/yourusername/job-portal.git
 cd job-portal
 ```
 
-#### 2️⃣ Setup MySQL Database
+#### 2️⃣ Configure MySQL Database
 
 ```sql
 -- Login to MySQL
@@ -328,7 +268,7 @@ GRANT ALL PRIVILEGES ON job_portal.* TO 'jobportal_user'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
-#### 3️⃣ Configure Application
+#### 3️⃣ Update Application Properties
 
 Edit `src/main/resources/application.properties`:
 
@@ -347,28 +287,39 @@ spring.jpa.properties.hibernate.format_sql=true
 
 # Server Configuration
 server.port=8080
+
+# Logging
+logging.level.org.springframework.web=DEBUG
+logging.level.com.basharat.JobPortal=DEBUG
 ```
 
-#### 4️⃣ Build & Run
+#### 4️⃣ Install Dependencies
 
 ```bash
-# Install dependencies
 mvn clean install
-
-# Run application
-mvn spring-boot:run
 ```
 
-#### 5️⃣ Verify Setup ✅
+#### 5️⃣ Run the Application
 
-- 🌐 Navigate to: `http://localhost:8080`
-- ✅ Check console: `Started JobPortalApplication`
-- 🗃️ Tables auto-created by Hibernate
+```bash
+# Using Maven
+mvn spring-boot:run
 
-## 🧪 Testing
+# Or run directly from IDE
+# Right-click on JobPortalApplication.java → Run
+```
 
-### Postman Collection
+#### 6️⃣ Verify Installation
 
+- 🌐 Application URL: `http://localhost:8080`
+- ✅ Check console for: `Started JobPortalApplication in X seconds`
+- 🗃️ Database tables will be auto-created by Hibernate
+
+## 🧪 Testing the API
+
+### Using Postman
+
+**Register a New User:**
 ```json
 POST http://localhost:8080/api/users/register
 Content-Type: application/json
@@ -381,9 +332,21 @@ Content-Type: application/json
 }
 ```
 
-### cURL Example
+**Login:**
+```json
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+  "username": "john_doe",
+  "password": "password123"
+}
+```
+
+### Using cURL
 
 ```bash
+# Register user
 curl -X POST http://localhost:8080/api/users/register \
   -H "Content-Type: application/json" \
   -d '{
@@ -392,94 +355,67 @@ curl -X POST http://localhost:8080/api/users/register \
     "password": "password123",
     "role": "JOB_SEEKER"
   }'
+
+# Get all jobs
+curl -X GET http://localhost:8080/api/jobs
 ```
 
 ## 🔧 Troubleshooting
 
-<details>
-<summary>⚠️ Click for common issues & solutions</summary>
+### Common Issues
 
 | Issue | Solution |
 |-------|----------|
-| ❌ Database connection error | Verify MySQL: `sudo systemctl status mysql` |
-| ❌ Port 8080 in use | Change port or kill: `lsof -i :8080` |
-| ❌ Maven build fails | Clear cache: `mvn clean install -U` |
-| ❌ Java version error | Check: `java -version` (needs 17+) |
-
-</details>
+| ❌ Database connection error | Verify MySQL is running: `sudo systemctl status mysql` |
+| ❌ Port 8080 already in use | Change port in `application.properties` or kill process: `lsof -i :8080` |
+| ❌ Maven build fails | Clear cache: `mvn clean` then `mvn install -U` |
+| ❌ Java version error | Check version: `java -version` (must be 17+) |
 
 ## 📚 Resources
 
-<div align="center">
-
-[![Spring Boot](https://img.shields.io/badge/Spring_Boot_Docs-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](https://docs.spring.io/spring-boot/)
-[![Spring Security](https://img.shields.io/badge/Spring_Security-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white)](https://docs.spring.io/spring-security/)
-[![MySQL](https://img.shields.io/badge/MySQL_Docs-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://dev.mysql.com/doc/)
-[![Maven](https://img.shields.io/badge/Maven_Guide-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)](https://maven.apache.org/guides/)
-
-</div>
+- [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/)
+- [Spring Data JPA Guide](https://spring.io/projects/spring-data-jpa)
+- [Spring Security Reference](https://docs.spring.io/spring-security/reference/index.html)
+- [MySQL Documentation](https://dev.mysql.com/doc/)
+- [Maven Guide](https://maven.apache.org/guides/index.html)
+- [REST API Best Practices](https://restfulapi.net/)
 
 ## 🤝 Contributing
 
-<div align="center">
-
-**Contributions, issues, and feature requests are welcome!**
-
-[![Fork](https://img.shields.io/github/forks/yourusername/job-portal?style=social)](https://github.com/yourusername/job-portal/fork)
-[![Stars](https://img.shields.io/github/stars/yourusername/job-portal?style=social)](https://github.com/yourusername/job-portal)
-[![Issues](https://img.shields.io/github/issues/yourusername/job-portal)](https://github.com/yourusername/job-portal/issues)
-
-</div>
+Contributions are welcome! Please follow these steps:
 
 1. 🍴 Fork the repository
-2. 🌱 Create feature branch (`git checkout -b feature/AmazingFeature`)
-3. 💾 Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. 📤 Push to branch (`git push origin feature/AmazingFeature`)
-5. 🔄 Open Pull Request
+2. 🌱 Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. 💾 Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. 📤 Push to the branch (`git push origin feature/AmazingFeature`)
+5. 🔄 Open a Pull Request
 
-## 🗺️ Roadmap
+## 🗺️ Future Enhancements
 
-- [x] User authentication & authorization
-- [x] Job posting & management
-- [x] Application tracking system
-- [ ] JWT token authentication
-- [ ] Email notifications
-- [ ] Resume upload
+- [ ] JWT token-based authentication
+- [ ] Email notifications for applications
+- [ ] Resume upload functionality
 - [ ] Admin dashboard
-- [ ] Real-time notifications
-- [ ] Docker support
-- [ ] CI/CD pipeline
+- [ ] Pagination & sorting
+- [ ] Advanced search filters
+- [ ] Real-time notifications (WebSocket)
+- [ ] Docker containerization
+- [ ] CI/CD pipeline setup
 
 ## 📄 License
 
-<div align="center">
-
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
-
-This project is licensed under the **MIT License** - see [LICENSE](LICENSE) file for details.
-
-</div>
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
 ## 📧 Contact
 
-<div align="center">
-
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourusername)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourprofile)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:your.email@example.com)
-
-</div>
+For questions, suggestions, or issues, please open an issue on GitHub or contact the maintainer.
 
 ---
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
+**⭐ Star this repo if you find it helpful!**
 
-### ⭐ Star this repo if you find it helpful!
-
-**Made with ❤️ using Spring Boot**
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer"/>
+Made with ❤️ using Spring Boot
 
 </div>
