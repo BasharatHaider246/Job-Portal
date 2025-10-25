@@ -19,6 +19,73 @@ This is a RESTful Job Portal application built using **Spring Boot**. The system
 - **ORM:** Spring Data JPA
 - **Build:** Maven/Gradle
 
+job-portal/
+│
+├── 📁 src/
+│   ├── 📁 main/
+│   │   ├── 📁 java/
+│   │   │   └── 📁 com/
+│   │   │       └── 📁 basharat/
+│   │   │           └── 📁 JobPortal/
+│   │   │               │
+│   │   │               ├── 📁 controller/           # REST API Controllers
+│   │   │               │   ├── 📄 UserController.java
+│   │   │               │   ├── 📄 EmployeeController.java
+│   │   │               │   ├── 📄 JobController.java
+│   │   │               │   ├── 📄 JobApplicationController.java
+│   │   │               │   └── 📄 JobCategoryController.java
+│   │   │               │
+│   │   │               ├── 📁 model/                # Entity Classes
+│   │   │               │   ├── 📄 User.java
+│   │   │               │   ├── 📄 Employee.java
+│   │   │               │   ├── 📄 Job.java
+│   │   │               │   ├── 📄 JobApplication.java
+│   │   │               │   └── 📄 JobCategory.java
+│   │   │               │
+│   │   │               ├── 📁 repository/           # Data Access Layer
+│   │   │               │   ├── 📄 UserRepository.java
+│   │   │               │   ├── 📄 EmployeeRepository.java
+│   │   │               │   ├── 📄 JobRepository.java
+│   │   │               │   ├── 📄 JobApplicationRepository.java
+│   │   │               │   └── 📄 JobCategoryRepository.java
+│   │   │               │
+│   │   │               ├── 📁 service/              # Business Logic
+│   │   │               │   ├── 📄 UserService.java
+│   │   │               │   ├── 📄 UserServiceImpl.java
+│   │   │               │   ├── 📄 EmployeeService.java
+│   │   │               │   ├── 📄 EmployeeServiceImpl.java
+│   │   │               │   ├── 📄 JobService.java
+│   │   │               │   ├── 📄 JobServiceImpl.java
+│   │   │               │   ├── 📄 JobApplicationService.java
+│   │   │               │   ├── 📄 JobApplicationServiceImpl.java
+│   │   │               │   ├── 📄 JobCategoryService.java
+│   │   │               │   └── 📄 JobCategoryServiceImpl.java
+│   │   │               │
+│   │   │               ├── 📁 config/               # Configuration Classes
+│   │   │               │   └── 📄 SecurityConfig.java
+│   │   │               │
+│   │   │               └── 📄 JobPortalApplication.java  # Main Class
+│   │   │
+│   │   └── 📁 resources/
+│   │       ├── 📄 application.properties           # App Configuration
+│   │       ├── 📁 static/                          # Static Resources
+│   │       └── 📁 templates/                       # Templates (if any)
+│   │
+│   └── 📁 test/
+│       └── 📁 java/
+│           └── 📁 com/
+│               └── 📁 basharat/
+│                   └── 📁 JobPortal/
+│                       └── 📄 JobPortalApplicationTests.java
+│
+├── 📁 target/                                      # Compiled Files (Maven)
+│
+├── 📄 pom.xml                                      # Maven Configuration
+├── 📄 README.md                                    # Project Documentation
+├── 📄 LICENSE                                      # MIT License
+└── 📄 .gitignore                                   # Git Ignore File
+
+
 ## Project Structure Explained
 Controllers:
 - `UserController.java` – Handles user registration, authentication, user info fetch
