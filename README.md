@@ -1,437 +1,114 @@
-# 💼 Job Portal - Spring Boot REST API
+# Job Portal Spring Boot Project
 
-<div align="center">
+## Overview
+This is a RESTful Job Portal application built using **Spring Boot**. The system allows users to register as job seekers or employers/companies, post jobs, apply for jobs, manage applications, and categorize jobs. It uses **MySQL database** for persistent storage and provides secure authentication.
 
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.0+-brightgreen?style=for-the-badge&logo=spring)
-![Java](https://img.shields.io/badge/Java-17+-orange?style=for-the-badge&logo=java)
-![MySQL](https://img.shields.io/badge/MySQL-8.0+-blue?style=for-the-badge&logo=mysql)
-![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+## Features
+- **User Authentication & Registration:** Secure registration and login for users (job seekers, employers).
+- **Profile Management:** Manage employer profiles and job seeker profiles.
+- **Job Posting & Management:** Companies can post jobs under various categories.
+- **Job Search:** Users can search jobs by keywords and categories.
+- **Job Application Workflow:** Job seekers can apply for posted jobs. Employers can view, accept, or reject applications.
+- **Categories Management:** Jobs are organized by categories (like IT, Marketing).
+- **Security:** Uses Spring Security with BCrypt password encoding and stateless session configuration.
+- **API Documentation:** (Swagger/OpenAPI integration recommended)
 
-**A comprehensive RESTful Job Portal API built with Spring Boot**
+## Tech Stack
+- **Backend:** Spring Boot, Spring Security
+- **Database:** MySQL
+- **ORM:** Spring Data JPA
+- **Build:** Maven/Gradle
 
-[Features](#-features) • [Architecture](#-architecture) • [Tech Stack](#-tech-stack) • [Installation](#-installation) • [API Docs](#-api-endpoints) • [Contributing](#-contributing)
+## Project Structure Explained
+Controllers:
+- `UserController.java` – Handles user registration, authentication, user info fetch
+- `EmployeeController.java` – Manage company/employer registration and profile
+- `JobController.java` – CRUD for job postings and job queries
+- `JobApplicationController.java` – Application submission and status tracking
+- `JobCategoryController.java` – CRUD for job categories
+- `SecurityConfig.java` – Configures authentication, password encryption, API endpoint permissions
 
-</div>
+Models (Entities):
+- `User.java` – User profile (username, password, email, role)
+- `Employee.java` – Company profile linked to a user
+- `Job.java` – Job posting details
+- `JobApplication.java` – Applications submitted by job seekers for jobs
+- `JobCategory.java` – Job category info
 
----
+Repositories:
+- Interfaces extending JPARepository for automatic CRUD operations and custom finders
+- Example: `UserRepository.java`, `JobRepository.java`, `JobApplicationRepository.java`
 
-## 📋 Overview
+Services:
+- Interfaces + Implementation for core logic
+- Example: `UserService`, `UserServiceImpl`, `JobService`, `JobServiceImpl`, etc.
 
-This is a production-ready **Job Portal application** built using **Spring Boot**. The system enables job seekers to discover and apply for jobs, while employers can post job listings, manage applications, and track candidates. The application features secure authentication, role-based access control, and a well-structured RESTful API.
+## How It Works
+User interacts via REST API endpoints:
+- User registration/login
+- Employer creates a profile and posts jobs
+- Job seeker applies for jobs
+- Employers review and update application statuses
+All requests are processed through Controllers → Services → Repositories → Database.
 
-## ✨ Features
-
-- 🔐 **User Authentication & Authorization** - Secure registration and login with BCrypt password encryption
-- 👤 **Profile Management** - Separate profiles for job seekers and employers/companies
-- 📝 **Job Posting & Management** - Companies can create, update, and manage job listings
-- 🔍 **Advanced Job Search** - Search jobs by keywords, categories, and company
-- 📤 **Application Management** - Job seekers can apply for jobs; employers can review and update application status
-- 🏷️ **Category System** - Organize jobs into categories (IT, Marketing, Sales, etc.)
-- 🔒 **Spring Security** - Stateless authentication with BCrypt password encoding
-- 🗄️ **MySQL Database** - Persistent data storage with JPA/Hibernate ORM
-- 📚 **API Documentation** - Clean REST API design (Swagger/OpenAPI ready)
-
----
-
-## 🏗️ Architecture
-
-<div align="center">
-
-```mermaid
-graph TB
-    JobSeeker[👥 Job Seeker<br/>User]
-    Employer[🏢 Employer<br/>Recruiter]
-    Frontend[🎨 Frontend<br/>React.js<br/>Port: 3000]
-    Backend[🔧 Backend API<br/>Spring Boot<br/>Port: 8080]
-    DB[(🗄️ MySQL DB)]
-    
-    JobSeeker --> Frontend
-    Employer --> Frontend
-    Frontend --> Backend
-    Backend --> DB
-    
-    style Frontend fill:#4CAF50,stroke:#2E7D32,color:#fff
-    style Backend fill:#2196F3,stroke:#1565C0,color:#fff
-    style DB fill:#FF9800,stroke:#E65100,color:#fff
-    style JobSeeker fill:#9C27B0,stroke:#6A1B9A,color:#fff
-    style Employer fill:#FF5722,stroke:#D84315,color:#fff
-```
-
-</div>
-
-### 🎨 Architecture Components
-
-- **👥 Job Seekers** - Users searching for jobs
-- **🏢 Employers** - Recruiters posting jobs
-- **🎨 React Frontend** - User interface (Port 3000)
-- **🔧 Spring Boot Backend** - REST APIs (Port 8080)
-- **🗄️ MySQL Database** - Data persistence
-
----
-
-## 🛠️ Tech Stack
-
-| Technology | Description |
-|-----------|-------------|
-| ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat&logo=spring&logoColor=white) | Backend framework |
-| ![Spring Security](https://img.shields.io/badge/Spring%20Security-6DB33F?style=flat&logo=springsecurity&logoColor=white) | Authentication & authorization |
-| ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white) | Relational database |
-| ![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=flat&logo=hibernate&logoColor=white) | ORM framework |
-| ![Maven](https://img.shields.io/badge/Maven-C71A36?style=flat&logo=apachemaven&logoColor=white) | Build automation |
-| ![Java](https://img.shields.io/badge/Java%2017-ED8B00?style=flat&logo=openjdk&logoColor=white) | Programming language |
-
----
-
-## 📂 Project Structure
-
-```
-job-portal/
-│
-├── 📁 src/
-│   ├── 📁 main/
-│   │   ├── 📁 java/com/basharat/JobPortal/
-│   │   │   │
-│   │   │   ├── 🎯 controller/           # REST API Controllers
-│   │   │   │   ├── 📄 UserController.java
-│   │   │   │   ├── 📄 EmployeeController.java
-│   │   │   │   ├── 📄 JobController.java
-│   │   │   │   ├── 📄 JobApplicationController.java
-│   │   │   │   └── 📄 JobCategoryController.java
-│   │   │   │
-│   │   │   ├── 📊 model/                # JPA Entities
-│   │   │   │   ├── 📄 User.java
-│   │   │   │   ├── 📄 Employee.java
-│   │   │   │   ├── 📄 Job.java
-│   │   │   │   ├── 📄 JobApplication.java
-│   │   │   │   └── 📄 JobCategory.java
-│   │   │   │
-│   │   │   ├── 🗄️ repository/          # Data Access Layer
-│   │   │   │   ├── 📄 UserRepository.java
-│   │   │   │   ├── 📄 EmployeeRepository.java
-│   │   │   │   ├── 📄 JobRepository.java
-│   │   │   │   ├── 📄 JobApplicationRepository.java
-│   │   │   │   └── 📄 JobCategoryRepository.java
-│   │   │   │
-│   │   │   ├── ⚙️ service/              # Business Logic
-│   │   │   │   ├── 📄 UserService.java
-│   │   │   │   ├── 📄 UserServiceImpl.java
-│   │   │   │   ├── 📄 EmployeeService.java
-│   │   │   │   ├── 📄 EmployeeServiceImpl.java
-│   │   │   │   ├── 📄 JobService.java
-│   │   │   │   ├── 📄 JobServiceImpl.java
-│   │   │   │   ├── 📄 JobApplicationService.java
-│   │   │   │   ├── 📄 JobApplicationServiceImpl.java
-│   │   │   │   ├── 📄 JobCategoryService.java
-│   │   │   │   └── 📄 JobCategoryServiceImpl.java
-│   │   │   │
-│   │   │   ├── 🔧 config/               # Configuration
-│   │   │   │   └── 📄 SecurityConfig.java
-│   │   │   │
-│   │   │   └── 📄 JobPortalApplication.java
-│   │   │
-│   │   └── 📁 resources/
-│   │       ├── 📄 application.properties
-│   │       ├── 📁 static/
-│   │       └── 📁 templates/
-│   │
-│   └── 📁 test/
-│       └── 📁 java/
-│           └── 📄 JobPortalApplicationTests.java
-│
-├── 📄 pom.xml
-├── 📄 README.md
-├── 📄 LICENSE
-└── 📄 .gitignore
-```
-
----
-
-## 💾 Database Schema
-
-```
-┌─────────────────────┐
-│       👤 USERS      │
-├─────────────────────┤
-│ 🔑 id (PK)          │
-│ 📧 username         │
-│ 🔒 password         │
-│ 📧 email            │
-│ 👔 role             │
-└──────────┬──────────┘
-           │ 1:1
-           ▼
-┌─────────────────────┐         ┌─────────────────────┐
-│   🏢 EMPLOYEES      │    1:N  │      💼 JOBS        │
-├─────────────────────┤◄────────├─────────────────────┤
-│ 🔑 id (PK)          │         │ 🔑 id (PK)          │
-│ 🔗 user_id (FK)     │         │ 📝 title            │
-│ 🏢 company_name     │         │ 📄 description      │
-│ 📄 description      │         │ 🔗 company_id (FK)  │
-└─────────────────────┘         │ 🔗 category_id (FK) │
-                                └──────────┬──────────┘
-                                           │ 1:N
-           ┌───────────────────────────────┘
-           │
-           ▼
-┌─────────────────────┐         ┌─────────────────────┐
-│  📋 JOB_APPLICATIONS│         │   🏷️ JOB_CATEGORIES │
-├─────────────────────┤         ├─────────────────────┤
-│ 🔑 id (PK)          │         │ 🔑 id (PK)          │
-│ 🔗 job_seeker_id    │         │ 📌 name             │
-│ 🔗 job_id (FK)      │         └─────────────────────┘
-│ 📊 status           │
-│ 📅 application_date │
-└─────────────────────┘
-```
-
----
-
-## 🚀 API Endpoints
-
-### 👤 User Management
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `POST` | `/api/users/register` | Register new user |
-| `POST` | `/api/users/login` | User login |
-| `GET` | `/api/users/username/{username}` | Get user by username |
-| `GET` | `/api/users/email/{email}` | Get user by email |
-
-### 🏢 Employee/Employer Management
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `POST` | `/api/employees/register` | Register company/employer |
-| `PUT` | `/api/employees/update` | Update company profile |
-| `GET` | `/api/employees/user/{userId}` | Get employee by user ID |
-
-### 💼 Job Management
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `POST` | `/api/jobs` | Create new job |
-| `GET` | `/api/jobs` | Get all jobs |
-| `GET` | `/api/jobs/company/{companyId}` | Get jobs by company |
-| `GET` | `/api/jobs/search?keyword=` | Search jobs by keyword |
-| `GET` | `/api/jobs/category/{categoryId}` | Get jobs by category |
-
-### 📋 Job Application Management
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `POST` | `/api/job-applications` | Submit job application |
-| `GET` | `/api/job-applications` | Get all applications |
-| `GET` | `/api/job-applications/job-seeker/{jobSeekerId}` | Get applications by job seeker |
-| `GET` | `/api/job-applications/job/{jobId}` | Get applications for specific job |
-| `PUT` | `/api/job-applications/{id}/status` | Update application status |
-
-### 🏷️ Job Category Management
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `POST` | `/api/job-categories` | Add new category |
-| `GET` | `/api/job-categories` | Get all categories |
-| `PUT` | `/api/job-categories/{id}` | Update category |
-| `DELETE` | `/api/job-categories/{id}` | Delete category |
-
----
-
-## 📥 Installation
+## Setting Up Locally
 
 ### Prerequisites
+- Java 17+
+- Maven (or Gradle)
+- MySQL Server
+- Git
 
-- ☕ **Java 17+**
-- 📦 **Maven 3.6+**
-- 🗄️ **MySQL 8.0+**
-- 🔧 **Git**
-- 💻 **IDE** (IntelliJ IDEA / Eclipse / VS Code)
+### Steps
+1. **Clone the Repository**
+   ```bash
+   git clone <your-repo-url>
+   cd <project-directory>
+   ```
+2. **Install Dependencies**
+   ```bash
+   mvn clean install
+   # OR if using Gradle
+   gradle build
+   ```
+3. **Configure Database**
+   - Create a MySQL database named `job_portal` (or update your database name in `application.properties`).
+   - Example SQL:
+     ```sql
+     CREATE DATABASE job_portal;
+     ```
+   - Update your `src/main/resources/application.properties` file:
+     ```properties
+     spring.datasource.url=jdbc:mysql://localhost:3306/job_portal
+     spring.datasource.username=YOUR_DB_USERNAME
+     spring.datasource.password=YOUR_DB_PASSWORD
+     spring.jpa.hibernate.ddl-auto=update
+     spring.jpa.show-sql=true
+     spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+     ```
+4. **Run MySQL Server:** Make sure your database is running locally and accepting connections.
+5. **Run the Application**
+   ```bash
+   mvn spring-boot:run
+   # OR
+   gradle bootRun
+   ```
+6. **Access the API**
+   - Default port: `http://localhost:8080/`
+   - API Docs: `/swagger-ui.html` (if Swagger/OpenAPI added)
 
-### Step-by-Step Setup
-
-#### 1️⃣ Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/job-portal.git
-cd job-portal
-```
-
-#### 2️⃣ Configure MySQL Database
-
-```sql
--- Login to MySQL
-mysql -u root -p
-
--- Create database
-CREATE DATABASE job_portal;
-
--- (Optional) Create dedicated user
-CREATE USER 'jobportal_user'@'localhost' IDENTIFIED BY 'your_password';
-GRANT ALL PRIVILEGES ON job_portal.* TO 'jobportal_user'@'localhost';
-FLUSH PRIVILEGES;
-```
-
-#### 3️⃣ Update Application Properties
-
-Edit `src/main/resources/application.properties`:
-
-```properties
-# MySQL Configuration
-spring.datasource.url=jdbc:mysql://localhost:3306/job_portal
-spring.datasource.username=root
-spring.datasource.password=your_mysql_password
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-
-# JPA/Hibernate Configuration
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
-spring.jpa.properties.hibernate.format_sql=true
-
-# Server Configuration
-server.port=8080
-
-# Logging
-logging.level.org.springframework.web=DEBUG
-logging.level.com.basharat.JobPortal=DEBUG
-```
-
-#### 4️⃣ Install Dependencies
-
-```bash
-mvn clean install
-```
-
-#### 5️⃣ Run the Application
-
-```bash
-# Using Maven
-mvn spring-boot:run
-
-# Or run directly from IDE
-# Right-click on JobPortalApplication.java → Run
-```
-
-#### 6️⃣ Verify Installation
-
-- 🌐 Application URL: `http://localhost:8080`
-- ✅ Check console for: `Started JobPortalApplication in X seconds`
-- 🗃️ Database tables will be auto-created by Hibernate
-
----
-
-## 🧪 Testing the API
-
-### Using Postman
-
-**Register a New User:**
-```json
-POST http://localhost:8080/api/users/register
-Content-Type: application/json
-
-{
-  "username": "john_doe",
-  "email": "john@example.com",
-  "password": "password123",
-  "role": "JOB_SEEKER"
-}
-```
-
-**Login:**
-```json
-POST http://localhost:8080/api/users/login
-Content-Type: application/json
-
-{
-  "username": "john_doe",
-  "password": "password123"
-}
-```
-
-### Using cURL
-
-```bash
-# Register user
-curl -X POST http://localhost:8080/api/users/register \
-  -H "Content-Type: application/json" \
-  -d '{
-    "username": "john_doe",
-    "email": "john@example.com",
-    "password": "password123",
-    "role": "JOB_SEEKER"
-  }'
-
-# Get all jobs
-curl -X GET http://localhost:8080/api/jobs
-```
-
----
-
-## 🔧 Troubleshooting
-
-### Common Issues
-
-| Issue | Solution |
-|-------|----------|
-| ❌ Database connection error | Verify MySQL is running: `sudo systemctl status mysql` |
-| ❌ Port 8080 already in use | Change port in `application.properties` or kill process: `lsof -i :8080` |
-| ❌ Maven build fails | Clear cache: `mvn clean` then `mvn install -U` |
-| ❌ Java version error | Check version: `java -version` (must be 17+) |
-
----
-
-## 📚 Resources
-
+## Useful Links
 - [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/)
+- [MySQL Installation Guide](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/)
 - [Spring Data JPA Guide](https://spring.io/projects/spring-data-jpa)
-- [Spring Security Reference](https://docs.spring.io/spring-security/reference/index.html)
-- [MySQL Documentation](https://dev.mysql.com/doc/)
-- [Maven Guide](https://maven.apache.org/guides/index.html)
-- [REST API Best Practices](https://restfulapi.net/)
+- [Swagger/OpenAPI Guide](https://swagger.io/docs/)
 
----
+## Contributing
+- Fork the repository
+- Create your feature branch (`git checkout -b feature/fooBar`)
+- Commit your changes (`git commit -am 'Add some fooBar'`)
+- Push to the branch (`git push origin feature/fooBar`)
+- Create a new Pull Request
 
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. 🍴 Fork the repository
-2. 🌱 Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. 💾 Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. 📤 Push to the branch (`git push origin feature/AmazingFeature`)
-5. 🔄 Open a Pull Request
-
----
-
-## 🗺️ Future Enhancements
-
-- [ ] JWT token-based authentication
-- [ ] Email notifications for applications
-- [ ] Resume upload functionality
-- [ ] Admin dashboard
-- [ ] Pagination & sorting
-- [ ] Advanced search filters
-- [ ] Real-time notifications (WebSocket)
-- [ ] Docker containerization
-- [ ] CI/CD pipeline setup
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 📧 Contact
-
-For questions, suggestions, or issues, please open an issue on GitHub or contact the maintainer.
-
----
-
-<div align="center">
-
-**⭐ Star this repo if you find it helpful!**
-
-Made with ❤️ using Spring Boot
-
-</div>
+## License
+Add your LICENSE file (MIT, Apache 2.0, etc.) here.
