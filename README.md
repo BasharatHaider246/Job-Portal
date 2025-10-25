@@ -9,7 +9,7 @@
 
 **A comprehensive RESTful Job Portal API built with Spring Boot**
 
-[Features](#-features) • [Tech Stack](#-tech-stack) • [Installation](#-installation) • [API Docs](#-api-endpoints) • [Contributing](#-contributing)
+[Features](#-features) • [Architecture](#-architecture) • [Tech Stack](#-tech-stack) • [Installation](#-installation) • [API Docs](#-api-endpoints) • [Contributing](#-contributing)
 
 </div>
 
@@ -31,6 +31,44 @@ This is a production-ready **Job Portal application** built using **Spring Boot*
 - 🗄️ **MySQL Database** - Persistent data storage with JPA/Hibernate ORM
 - 📚 **API Documentation** - Clean REST API design (Swagger/OpenAPI ready)
 
+---
+
+## 🏗️ Architecture
+
+<div align="center">
+
+```mermaid
+graph TB
+    JobSeeker[👥 Job Seeker<br/>User]
+    Employer[🏢 Employer<br/>Recruiter]
+    Frontend[🎨 Frontend<br/>React.js<br/>Port: 3000]
+    Backend[🔧 Backend API<br/>Spring Boot<br/>Port: 8080]
+    DB[(🗄️ MySQL DB)]
+    
+    JobSeeker --> Frontend
+    Employer --> Frontend
+    Frontend --> Backend
+    Backend --> DB
+    
+    style Frontend fill:#4CAF50,stroke:#2E7D32,color:#fff
+    style Backend fill:#2196F3,stroke:#1565C0,color:#fff
+    style DB fill:#FF9800,stroke:#E65100,color:#fff
+    style JobSeeker fill:#9C27B0,stroke:#6A1B9A,color:#fff
+    style Employer fill:#FF5722,stroke:#D84315,color:#fff
+```
+
+</div>
+
+### 🎨 Architecture Components
+
+- **👥 Job Seekers** - Users searching for jobs
+- **🏢 Employers** - Recruiters posting jobs
+- **🎨 React Frontend** - User interface (Port 3000)
+- **🔧 Spring Boot Backend** - REST APIs (Port 8080)
+- **🗄️ MySQL Database** - Data persistence
+
+---
+
 ## 🛠️ Tech Stack
 
 | Technology | Description |
@@ -41,6 +79,8 @@ This is a production-ready **Job Portal application** built using **Spring Boot*
 | ![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=flat&logo=hibernate&logoColor=white) | ORM framework |
 | ![Maven](https://img.shields.io/badge/Maven-C71A36?style=flat&logo=apachemaven&logoColor=white) | Build automation |
 | ![Java](https://img.shields.io/badge/Java%2017-ED8B00?style=flat&logo=openjdk&logoColor=white) | Programming language |
+
+---
 
 ## 📂 Project Structure
 
@@ -104,49 +144,7 @@ job-portal/
 └── 📄 .gitignore
 ```
 
-## 🏗️ Architecture
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│              🌐 Client (Browser/Postman/Mobile)             │
-└───────────────────────┬─────────────────────────────────────┘
-                        │ HTTP Requests (JSON)
-                        ▼
-┌─────────────────────────────────────────────────────────────┐
-│                   🎯 Controller Layer                        │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐     │
-│  │    User      │  │   Employee   │  │     Job      │     │
-│  │  Controller  │  │  Controller  │  │  Controller  │ ... │
-│  └──────────────┘  └──────────────┘  └──────────────┘     │
-└───────────────────────┬─────────────────────────────────────┘
-                        │ Business Logic Calls
-                        ▼
-┌─────────────────────────────────────────────────────────────┐
-│                   ⚙️  Service Layer                          │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐     │
-│  │    User      │  │   Employee   │  │     Job      │     │
-│  │   Service    │  │   Service    │  │   Service    │ ... │
-│  └──────────────┘  └──────────────┘  └──────────────┘     │
-└───────────────────────┬─────────────────────────────────────┘
-                        │ Data Operations
-                        ▼
-┌─────────────────────────────────────────────────────────────┐
-│                   🗄️  Repository Layer                       │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐     │
-│  │    User      │  │   Employee   │  │     Job      │     │
-│  │  Repository  │  │  Repository  │  │  Repository  │ ... │
-│  └──────────────┘  └──────────────┘  └──────────────┘     │
-└───────────────────────┬─────────────────────────────────────┘
-                        │ JPA/Hibernate
-                        ▼
-┌─────────────────────────────────────────────────────────────┐
-│                   🗃️  MySQL Database                         │
-│     ┌─────────┐  ┌──────────┐  ┌──────┐  ┌────────────┐   │
-│     │  users  │  │ employees│  │ jobs │  │    job_    │   │
-│     │         │  │          │  │      │  │applications│   │
-│     └─────────┘  └──────────┘  └──────┘  └────────────┘   │
-└─────────────────────────────────────────────────────────────┘
-```
+---
 
 ## 💾 Database Schema
 
@@ -185,6 +183,8 @@ job-portal/
 │ 📅 application_date │
 └─────────────────────┘
 ```
+
+---
 
 ## 🚀 API Endpoints
 
@@ -233,6 +233,8 @@ job-portal/
 | `GET` | `/api/job-categories` | Get all categories |
 | `PUT` | `/api/job-categories/{id}` | Update category |
 | `DELETE` | `/api/job-categories/{id}` | Delete category |
+
+---
 
 ## 📥 Installation
 
@@ -315,6 +317,8 @@ mvn spring-boot:run
 - ✅ Check console for: `Started JobPortalApplication in X seconds`
 - 🗃️ Database tables will be auto-created by Hibernate
 
+---
+
 ## 🧪 Testing the API
 
 ### Using Postman
@@ -360,6 +364,8 @@ curl -X POST http://localhost:8080/api/users/register \
 curl -X GET http://localhost:8080/api/jobs
 ```
 
+---
+
 ## 🔧 Troubleshooting
 
 ### Common Issues
@@ -371,6 +377,8 @@ curl -X GET http://localhost:8080/api/jobs
 | ❌ Maven build fails | Clear cache: `mvn clean` then `mvn install -U` |
 | ❌ Java version error | Check version: `java -version` (must be 17+) |
 
+---
+
 ## 📚 Resources
 
 - [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/)
@@ -379,6 +387,8 @@ curl -X GET http://localhost:8080/api/jobs
 - [MySQL Documentation](https://dev.mysql.com/doc/)
 - [Maven Guide](https://maven.apache.org/guides/index.html)
 - [REST API Best Practices](https://restfulapi.net/)
+
+---
 
 ## 🤝 Contributing
 
@@ -389,6 +399,8 @@ Contributions are welcome! Please follow these steps:
 3. 💾 Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. 📤 Push to the branch (`git push origin feature/AmazingFeature`)
 5. 🔄 Open a Pull Request
+
+---
 
 ## 🗺️ Future Enhancements
 
@@ -402,9 +414,13 @@ Contributions are welcome! Please follow these steps:
 - [ ] Docker containerization
 - [ ] CI/CD pipeline setup
 
+---
+
 ## 📄 License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+---
 
 ## 📧 Contact
 
